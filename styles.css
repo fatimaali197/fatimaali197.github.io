@@ -1,86 +1,139 @@
-/* Shared colors and comfortable spacing for a simple, readable page. */
+/* Change these colors to personalize the whole page. */
+:root {
+  --paper: #f6f8f5;
+  --ink: #183e45;
+  --muted: #526b70;
+  --teal: #216b6a;
+  --sea: #e5efea;
+  --line: #ceded8;
+  --coral: #c07864;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 24px; }
 body {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 64px 24px 24px;
-  background: #faf9f6;
-  color: #28332e;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.7;
+  margin: 0;
+  padding: 0 32px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
 }
-
-header {
-  padding-bottom: 36px;
+.site-header, main, footer { max-width: 1040px; margin-inline: auto; }
+a { color: var(--teal); text-underline-offset: 5px; overflow-wrap: anywhere; }
+a:hover { color: var(--ink); }
+a:focus-visible { outline: 2px solid var(--teal); outline-offset: 6px; }
+p { margin: 0 0 18px; }
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
 }
+.wordmark { font-family: Georgia, serif; font-size: 28px; text-decoration: none; }
+.wordmark span, .name-dot { color: var(--coral); }
+nav { display: flex; flex-wrap: wrap; gap: 12px 30px; font-size: 14px; }
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; }
 
+/* A spacious introduction beside a framed, naturally cropped photograph. */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 72px;
+  padding: 76px 0 84px;
+}
 .eyebrow {
-  color: #59665f;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .15em;
   text-transform: uppercase;
 }
-
-h1 {
-  margin: 8px 0;
-  font-size: 3rem;
-  line-height: 1.2;
-  letter-spacing: -0.04em;
+.eyebrow span { font-size: 26px; color: var(--coral); }
+h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+h1 { margin: 12px 0 24px; font-size: clamp(48px, 6vw, 76px); line-height: 1.1; letter-spacing: -.045em; }
+.introduction { max-width: 440px; font-size: 23px; line-height: 1.55; }
+.introduction strong { font-weight: 500; color: var(--teal); }
+.hero-description { max-width: 410px; color: var(--muted); font-size: 16px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 12px;
+  padding: 11px 20px;
+  border: 1px solid var(--teal);
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
 }
-
-.introduction {
-  max-width: 520px;
-  font-size: 1.2rem;
+.button:hover { background: var(--sea); }
+.portrait-card {
+  position: relative;
+  padding: 12px 12px 0;
+  background: var(--sea);
+  border: 1px solid var(--line);
+  border-radius: 120px 120px 12px 12px;
+  box-shadow: 12px 16px 0 #eaf0ed;
 }
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  margin-top: 24px;
+.portrait-card::before {
+  content: "";
+  position: absolute;
+  width: 62px;
+  height: 30px;
+  top: 16px;
+  right: -16px;
+  border: 1px solid var(--teal);
+  border-radius: 100% 0 100% 0;
+  transform: rotate(-28deg);
 }
-
-a {
-  color: #27634d;
-  text-underline-offset: 4px;
-  overflow-wrap: anywhere;
+.portrait-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 66%;
+  border-radius: 110px 110px 5px 5px;
 }
+.portrait-caption { display: flex; align-items: center; gap: 9px; padding: 14px 4px; font-size: 11px; color: var(--muted); }
+.portrait-caption span { color: var(--teal); font-size: 20px; }
 
-a:hover {
-  color: #163f30;
+/* Numbered sections keep longer academic content easy to scan. */
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  border-top: 1px solid var(--line);
+  padding: 42px 0;
 }
+.section-number { font-family: monospace; font-size: 11px; color: var(--teal); letter-spacing: .1em; }
+h2 { margin: 5px 0 0; font-size: 29px; line-height: 1.3; }
+.section-copy { color: var(--muted); padding-top: 4px; }
+.section-copy p:last-child { margin-bottom: 0; }
+.contact-section { border-bottom: 1px solid var(--line); }
+footer { padding: 26px 0; font-size: 12px; color: var(--muted); }
+footer p { margin: 0; }
+.skip-link { position: absolute; top: -80px; padding: 8px 16px; background: var(--paper); z-index: 1; }
+.skip-link:focus { top: 8px; }
 
-a:focus-visible {
-  outline: 2px solid #27634d;
-  outline-offset: 5px;
+/* Stack the portrait and text on phones and smaller tablets. */
+@media (max-width: 760px) {
+  body { padding-inline: 24px; }
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 46px 0 58px; }
+  .hero-copy { max-width: 520px; }
+  .portrait-card { width: min(100%, 360px); justify-self: center; }
+  .content-section { grid-template-columns: 1fr; gap: 18px; padding: 32px 0; }
 }
-
-section {
-  border-top: 1px solid #d9ded8;
-  padding: 28px 0;
-}
-
-h2 {
-  margin: 0 0 12px;
-  font-size: 1.35rem;
-}
-
-p {
-  margin: 0 0 16px;
-}
-
-footer {
-  margin-top: 24px;
-  color: #59665f;
-  font-size: 0.85rem;
-}
-
-/* Reduce spacing and heading size on smaller screens. */
-@media (max-width: 480px) {
-  body {
-    padding-top: 36px;
-  }
-
-  h1 {
-    font-size: 2.4rem;
-  }
+@media (max-width: 420px) {
+  .site-header { gap: 12px; }
+  nav { gap: 12px; font-size: 12px; }
+  .introduction { font-size: 21px; }
 }

@@ -8,11 +8,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <!-- Replace “Your Name” with your own name. -->
-    <!-- <p class="eyebrow">Personal website</p> -->
-    <h1>Fatima Ali</h1>
-    <p class="introduction">I'm a PhD student researching Human-AI Interaction.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Fatima Ali, home">FA<span aria-hidden="true">.</span></a>
     <nav aria-label="Main navigation">
       <a href="#about">About Me</a>
       <a href="#research">Research</a>
@@ -20,23 +18,42 @@
     </nav>
   </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> People, possibility &amp; AI</p>
+        <h1 id="hero-title">Fatima Ali<span class="name-dot">.</span></h1>
+        <p class="introduction">I'm a PhD student researching <strong>Human-AI Interaction.</strong></p>
+        <p class="hero-description">Exploring how people interact with AI, and how we can design technology that supports people.</p>
+        <a class="button" href="#research">Explore my research <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="portrait-card">
+        <img src="profile.jpeg" alt="Fatima Ali standing among flowering trees" width="4280" height="5312">
+        <div class="portrait-caption"><span aria-hidden="true">✳</span> A little curiosity goes a long way.</div>
+      </div>
+    </section>
+    <section class="content-section" id="about">
+      <div class="section-heading"><span class="section-number">01 /</span><h2>About Me</h2></div>
+      <div class="section-copy">
       <p>Welcome to my website! I'm interested in how people interact with AI and how we can design technology that supports people.</p>
       <!-- Add your university, background, or interests here. -->
+      </div>
     </section>
 
-    <section id="research">
-      <h2>Research</h2>
+    <section class="content-section" id="research">
+      <div class="section-heading"><span class="section-number">02 /</span><h2>Research</h2></div>
+      <div class="section-copy">
       <p>My research focuses on Human-AI Interaction. This is where I'll share my projects, publications, and ideas as my work develops.</p>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
+    <section class="content-section contact-section" id="contact">
+      <div class="section-heading"><span class="section-number">03 /</span><h2>Contact</h2></div>
+      <div class="section-copy">
       <p>I'd love to connect with others interested in people and AI.</p>
-      <!-- Replace the address in both places below with your email. -->
+      <!-- Update both the link and visible text if your email changes. -->
       <a href="mailto:fatima6@illinois.edu">fatima6@illinois.edu</a>
+      </div>
     </section>
   </main>
 
